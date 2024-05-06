@@ -123,10 +123,11 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 	if (client?.prefs && !(client.prefs.toggles & SOUND_ALT) && (S.file in GLOB.alt_sound_overrides))
 		S.file = GLOB.alt_sound_overrides[S.file]
 
-	if(frequency)
-		S.frequency = frequency
-	else if(vary)
-		S.frequency = get_rand_frequency()
+	if(vary)
+		if(frequency)
+			S.frequency = frequency
+		else
+			S.frequency = get_rand_frequency()
 
 	if(isturf(turf_source))
 		var/turf/T = get_turf(src)

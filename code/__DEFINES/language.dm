@@ -26,4 +26,3 @@
 #define LANGUAGE_CATEARS		"cat"
 #define LANGUAGE_SYNTH			"synth"
 #define LANGUAGE_MULTILINGUAL	"multilingual"
-#define LANGUAGE_HOLOPARA "holoparasite"

@@ -501,14 +501,23 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 
 //GUARDIANS
 
-/atom/movable/screen/alert/holoparasite
-	icon = 'icons/mob/holoparasite.dmi'
+/atom/movable/screen/alert/cancharge
+	name = "Charge Ready"
+	desc = "You are ready to charge at a location!"
+	icon_state = "guardian_charge"
 	alerttooltipstyle = "parasite"
 
-/atom/movable/screen/alert/holoparasite/anchored
-	name = "Anchored"
-	desc = "You are anchored to your summoner, and will remain behind them until you manually move!"
-	icon_state = "anchored"
+/atom/movable/screen/alert/canstealth
+	name = "Stealth Ready"
+	desc = "You are ready to enter stealth!"
+	icon_state = "guardian_canstealth"
+	alerttooltipstyle = "parasite"
+
+/atom/movable/screen/alert/instealth
+	name = "In Stealth"
+	desc = "You are in stealth and your next attack will do bonus damage!"
+	icon_state = "guardian_instealth"
+	alerttooltipstyle = "parasite"
 
 //IPC martial arts
 /atom/movable/screen/alert/ipcmartial
