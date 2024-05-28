@@ -1,9 +1,9 @@
 /datum/eldritch_knowledge/base_moon
-	name = "A Locksmith's Secret"
-	desc = "Opens up the Path of Knock to you. \
-		Allows you to transmute a knife and a crowbar into a Key Blade. Additionally, your grasp will open up numerous locked things when used upon them."
-	gain_text = "The Knock permits no seal and no isolation. It thrusts us gleefully out of the safety of ignorance."
-	unlocked_transmutations = list(/datum/eldritch_transmutation/knock_knife)
+	name = "Moonlight Troupe"
+	desc = "Opens up the Path of Moon to you. \
+		Allows you to transmute 2 sheets of iron and a knife into an Lunar Blade."
+	gain_text = "Under the light of the moon the laughter echoes."
+	unlocked_transmutations = list(/datum/eldritch_transmutation/moon_knife)
 	cost = 1
 	route = PATH_MOON
 	tier = TIER_PATH
@@ -27,11 +27,20 @@
 /datum/eldritch_knowledge/base_moon/on_lose(mob/user)
 	UnregisterSignal(user, COMSIG_HERETIC_MANSUS_GRASP_ATTACK)
 
-/datum/eldritch_knowledge/moon_grasp/proc/on_mansus_grasp(mob/living/source, mob/living/target)
+/datum/eldritch_knowledge/base_moon/proc/on_mansus_grasp(mob/living/source, mob/living/target)
 	SIGNAL_HANDLER
-	source.apply_status_effect(/datum/status_effect/moon_grasp_hide)
 
 	if(!iscarbon(target))
 		return
 	var/mob/living/carbon/carbon_target = target
+	target.adjust_confusion(10 SECONDS)
 	to_chat(carbon_target, span_danger("You hear echoing laughter from above"))
+
+/datum/eldritch_knowledge/spell/moon_smile
+	name = "T1 - Smile of the Moon"
+	gain_text = "The strongest fires come from within, expel a piece of your burning soul to show you enemies the truth of flame."
+	desc = "Shoot a strong blast of fire at an enemy."
+	cost = 1
+	spell_to_add = /datum/action/cooldown/spell/pointed/moon_smile
+	route = PATH_MOON
+	tier = TIER_1
