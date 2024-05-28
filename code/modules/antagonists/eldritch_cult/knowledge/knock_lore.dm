@@ -24,7 +24,7 @@
 	var/datum/action/cooldown/spell/jaunt/ethereal_jaunt/knock/knock_jaunt = new(user)
 	knock_jaunt.Grant(user)
 
-/datum/eldritch_knowledge/base_ash/on_lose(mob/user)
+/datum/eldritch_knowledge/base_knock/on_lose(mob/user)
 	UnregisterSignal(user, COMSIG_HERETIC_MANSUS_GRASP_ATTACK)
 
 /datum/eldritch_knowledge/base_knock/proc/on_mansus_grasp(mob/living/source, atom/target)
