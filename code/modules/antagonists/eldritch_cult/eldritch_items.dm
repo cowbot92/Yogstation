@@ -209,6 +209,13 @@
 	icon_state = "knock_blade"
 	item_state = "knock_blade"
 
+/obj/item/melee/sickly_blade/moon
+	name = "moonlight blade"
+	desc = "A blade of iron, reflecting the truth of the earth: All join the troupe one day. \
+		A troupe bringing joy, carving smiles on their faces if they want one or not."
+	icon_state = "moon_blade"
+	item_state = "moon_blade"
+
 /obj/item/clothing/neck/eldritch_amulet
 	name = "warm eldritch medallion"
 	desc = "A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulse of a thousand others."

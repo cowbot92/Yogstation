@@ -34,6 +34,7 @@
 		PATH_BLADE = "label", // my favorite color is label
 		PATH_COSMIC = "purple",
 		PATH_KNOCK = "yellow",
+		PATH_MOON = "blue"
 	)
 
 /datum/antagonist/heretic/ui_data(mob/user)
@@ -803,6 +804,9 @@
 
 /datum/antagonist/heretic/proc/is_knock()
 	return "[lore]" == PATH_KNOCK
+
+/datum/antagonist/heretic/proc/is_moon()
+	return "[lore]" == PATH_MOON
 
 /datum/antagonist/heretic/proc/is_unpledged()
 	return "[lore]" == PATH_NONE
