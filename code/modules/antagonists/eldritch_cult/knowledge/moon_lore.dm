@@ -38,9 +38,35 @@
 
 /datum/eldritch_knowledge/spell/moon_smile
 	name = "T1 - Smile of the Moon"
-	gain_text = "The strongest fires come from within, expel a piece of your burning soul to show you enemies the truth of flame."
-	desc = "Shoot a strong blast of fire at an enemy."
+	gain_text = "The moon shines bright upon all who surround it, though many scorn it's rays and are sundered for it."
+	desc = "Confuse, Blind, Deafen, and Mute a single target temporarily."
 	cost = 1
 	spell_to_add = /datum/action/cooldown/spell/pointed/moon_smile
 	route = PATH_MOON
 	tier = TIER_1
+
+/datum/eldritch_knowledge/moon_mark
+	name = "Grasp Mark - Mark of Moon"
+	gain_text = "The troupe on the moon would dance all day long \
+		and in that dance the moon would smile upon us \
+		but when the night came its smile would dull forced to gaze on the earth."
+		
+	desc = "Your Mansus Grasp now applies the Mark of Moon, pacifying the victim until attacked. \
+		The mark can also be triggered from an attack with your Moon Blade, leaving the victim confused."
+	cost = 2
+	route = PATH_MOON
+	tier = TIER_MARK
+
+/datum/eldritch_knowledge/moon_mark/on_gain(mob/user)
+	. = ..()
+	RegisterSignal(user, COMSIG_HERETIC_MANSUS_GRASP_ATTACK, PROC_REF(on_mansus_grasp))
+
+/datum/eldritch_knowledge/moon_mark/on_lose(mob/user, datum/antagonist/heretic/our_heretic)
+	UnregisterSignal(user, COMSIG_HERETIC_MANSUS_GRASP_ATTACK)
+
+/datum/eldritch_knowledge/moon_mark/proc/on_mansus_grasp(mob/living/source, mob/living/target)
+	SIGNAL_HANDLER
+
+	if(isliving(target))
+		var/mob/living/living_target = target
+		living_target.apply_status_effect(/datum/status_effect/eldritch/moon)

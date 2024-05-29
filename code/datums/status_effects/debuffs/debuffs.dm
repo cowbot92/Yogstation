@@ -1227,6 +1227,27 @@
 	owner.adjust_silence(10 SECONDS)
 	return ..()
 
+/datum/status_effect/eldritch/moon
+	duration = 5 SECONDS
+	id = "moon mark"
+	effect_sprite = "emark8"
+	///Used for checking if the pacifism effect should end early
+	var/damage_sustained = 0
+
+/datum/status_effect/eldritch/moon/on_apply()
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_PACIFISM, id)
+	owner.emote(pick("giggle", "laugh"))
+	owner.balloon_alert(owner, "you feel unable to hurt a soul!")
+	return TRUE
+
+/// Checks for damage so the heretic can't just attack them with another weapon whilst they are unable to fight back
+/datum/status_effect/eldritch/moon/on_remove()
+	. = ..()
+
+	REMOVE_TRAIT(owner, TRAIT_PACIFISM, id)
+	owner.balloon_alert(owner, "you feel able to once again strike!")
+
 /datum/status_effect/amok
 	id = "amok"
 	status_type = STATUS_EFFECT_REPLACE

@@ -34,7 +34,7 @@
 /datum/action/cooldown/spell/pointed/moon_smile
 	name = "Smile of the moon"
 	desc = "Lets you turn the gaze of the moon on someone \
-			temporarily blinding, muting, deafening and knocking down a single target."
+			temporarily confusing, blinding, muting, and deafening a single target."
 	background_icon_state = "bg_heretic"
 	overlay_icon_state = "bg_heretic_border"
 	button_icon = 'icons/mob/actions/actions_ecult.dmi'
@@ -60,7 +60,6 @@
 
 /datum/action/cooldown/spell/pointed/moon_smile/cast(mob/living/carbon/human/cast_on)
 	. = ..()
-	/// The duration of these effects are based on sanity, mainly for flavor but also to make it a weaker alpha strike
 	if(cast_on.can_block_magic(antimagic_flags))
 		to_chat(cast_on, span_notice("The moon turns, its smile no longer set on you."))
 		to_chat(owner, span_warning("The moon does not smile upon them."))
@@ -69,9 +68,10 @@
 	playsound(cast_on, 'sound/hallucinations/i_see_you1.ogg', 50, 1)
 	to_chat(cast_on, span_warning("Your eyes cry out in pain, your ears bleed and your lips seal! THE MOON SMILES UPON YOU!"))
 	cast_on.adjust_blindness(3 SECONDS)
-	cast_on.set_eye_blur_if_lower(7 SECONDS)
+	cast_on.set_eye_blur_if_lower(3 SECONDS)
 	cast_on.adjustEarDamage(100)
 	cast_on.adjust_silence(5 SECONDS)
+	cast_on.adjust_confusion(10 SECONDS)
 
 	return TRUE
 
