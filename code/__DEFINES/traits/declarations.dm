@@ -52,12 +52,14 @@
 #define TRAIT_ALIEN_SNEAK "sneaking_alien"
 ///This mob can't use vehicles
 #define TRAIT_NOVEHICLE	"no_vehicle"
+/// This mech is fully disabled
+#define TRAIT_MECH_DISABLED "mech_disabled"
 /// You can't see color!
 #define TRAIT_COLORBLIND "color_blind"
 /// This person is crying
 #define TRAIT_CRYING "crying"
 /// you cannot put this in any container, backpack, box etc
-#define TRAIT_NO_STORAGE		"no-storage" 
+#define TRAIT_NO_STORAGE		"no-storage"
 /// Crafts items using the crafting menu faster
 #define TRAIT_CRAFTY			"crafty"
 /// Gets a more detailed reagent breakdown when examining
@@ -72,7 +74,7 @@
 #define TRAIT_EAT_MORE			"eat_more"
 /// Can never be full
 #define TRAIT_BOTTOMLESS_STOMACH "bottomless_stomach"
-/// Randomly passes out
+/// Randomly makes nearby lights flicker
 #define RANDOM_BLACKOUTS "random_blackouts"
 /// Provides the cultist red eyes overlay
 #define CULT_EYES "cult_eyes"
@@ -128,6 +130,7 @@
 #define TRAIT_DIGITIGRADE		"digitigrade" // the funny lizard legs
 /// If the legs are to be displayed like regular legs
 #define TRAIT_DIGI_SQUISH       "didi_squish"
+#define TRAIT_IGNORE_SHAREDFOOD "ignore_shared_food" // don't get negative moodlet from sharing a plate
 
 ////////////////////////////////////////////////////////////////////////////////////
 //---------------------------------Quirk defines----------------------------------//

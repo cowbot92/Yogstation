@@ -39,10 +39,6 @@
 #define COMSIG_GLOB_PRE_RANDOM_EVENT "!pre_random_event"
 	/// Do not allow this random event to continue.
 	#define CANCEL_PRE_RANDOM_EVENT (1<<0)
-/// Called by (/datum/round_event_control/RunEvent).
-#define COMSIG_GLOB_RANDOM_EVENT "!random_event"
-	/// Do not allow this random event to continue.
-	#define CANCEL_RANDOM_EVENT (1<<0)
 /// a person somewhere has thrown something : (mob/living/carbon/carbon_thrower, target)
 #define COMSIG_GLOB_CARBON_THROW_THING	"!throw_thing"
 /// a trapdoor remote has sent out a signal to link with a trapdoor
@@ -84,3 +80,5 @@
 #define COMSIG_STARLIGHT_COLOR_CHANGED "!starlight_color_changed"
 /// Global signal sent when darkspawns ascend: (No arguments)
 #define COMSIG_DARKSPAWN_ASCENSION "!darkspawn_ascension"
+/// Global signal sent when the backrooms finishes initailizing: (No arguments)
+#define COMSIG_BACKROOMS_INITIALIZE "!backrooms_initialize"
