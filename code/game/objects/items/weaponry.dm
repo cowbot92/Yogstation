@@ -610,6 +610,28 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb = list("sawed", "torn", "cut", "chopped", "diced")
 	hitsound = 'sound/weapons/chainsawhit.ogg'
 
+/obj/item/mounted_chainsaw/demon
+	name = "mounted demon chainsaw"
+	desc = "A demonnic chainsaw that has replaced your arm."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "demon_off"
+	item_state = "mounted_demon_chainsaw"
+	lefthand_file = 'icons/mob/inhands/weapons/chainsaw_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/chainsaw_righthand.dmi'
+	item_flags = ABSTRACT | DROPDEL
+	w_class = WEIGHT_CLASS_HUGE
+	force = 30
+	throwforce = 0
+	throw_range = 0
+	throw_speed = 0
+	sharpness = SHARP_EDGED
+	attack_verb = list("sawed", "torn", "cut", "chopped", "diced")
+	hitsound = 'sound/weapons/chainsawhit.ogg'
+
+/obj/item/mounted_chainsaw/demon/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/lifesteal, 30)
+
 /obj/item/mounted_chainsaw/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/cleave_attack)
